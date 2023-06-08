@@ -1,0 +1,34 @@
+<style>
+  .container{
+      padding: 5%;
+    }
+  h1{
+      color: dodgerblue;
+      font-size: 3.5em;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+<body>
+  <div class="container">
+  <h1>New Task</h1>
+
+<%= form_with model: @task, url: tasks_path, method: :post do |f| %>
+<div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control', placeholder: 'Enter your task title', required: true%>
+  </div>
+  
+  <div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :body, class: 'form-control', placeholder: 'Describe your task',required: true %>
+  </div>
+
+  <br>
+  <%= f.submit "Add Task", class: 'btn btn-warning' %>
+  </div>
+<% end %>
+</div>
+<script src="bootstrap.min.js"></script>
+</body>
+</html>
+

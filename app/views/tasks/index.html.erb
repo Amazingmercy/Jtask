@@ -1,0 +1,110 @@
+<style>
+  h1{
+    color: dodgerblue;
+    font-size: 3.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .but{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5%;
+  }
+</style>
+  <body>
+  <h1>Task List</h1>
+  <h4>Completed Tasks: <%= current_user.tasks.where(completed: true).count %></h4>
+  <p>Percentage: <%=@f_percentage%>%</p> 
+  <%# end %>
+  <p><%#= (current_user.tasks.all).count%></p>
+
+  <p id="time"><p><br>
+
+<table class="table table-hover table table-striped table">
+  <thead>
+    <tr>
+      <th class="table-light"> </th>
+      <th class="table-primary">Title</th>
+      <th class="table-light">Description</th> 
+      <th class="table-primary">Completed?</th>
+      <th class="table-light">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <% current_user.tasks.each do |task|%>
+        <%= form_with model: task do |f| %>
+        <td class="table-light">
+        <%= f.check_box :completed, checked: task.completed?, class: 'form-check-input disabled' %>
+        <% end %> 
+        </td>
+        <td class="table-primary"><%= task.title %></td>
+        <td class="table-light"><%= task.body %></td>
+        <td class="table-primary"><%= task.completed? ? "True" : " "%></td>
+        
+        <td class="table-light">
+          <div class="but">
+            <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-outline-warning'%>
+            <%= link_to 'View',task_path(task), class: 'btn btn-outline-primary'%>
+          </div>  
+        </td>
+      </tr>
+        <% end %>
+  </tbody>
+</table>
+
+<div>
+<div class="but">
+<%= link_to "Add Task", new_task_path, class: "btn btn-warning" %><br>
+<%= link_to "Logout", logout_path, method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure you want to log out?'} %>
+</div>
+</div>
+
+<script>
+//document.addEventListener('DOMContentLoaded', function() {
+ updateTime()
+ //updatePercentage()
+  // Function to update the current time
+  function updateTime() {
+    var currentTimeElement = document.getElementById('time');
+    var currentTime = new Date();
+    currentTimeElement.innerHTML = 'Time: ' + currentTime.toLocaleTimeString();
+  }
+  setInterval(updateTime, 1000);
+
+  /*var checkboxes = document.querySelectorAll('input[name="task"]');
+
+  // Function to update the percentage will be updated later!!
+  function updatePercentage() {
+    var completedCount = 0;
+    var totalCount = checkboxes.length;
+
+    // Count the number of completed tasks
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.checked) {
+        completedCount++;
+      }
+    });
+
+    // Calculate the percentage
+    var percentage = (completedCount / totalCount) * 100;
+
+    // Update the percentage element
+    var percentageElement = document.getElementById('percentage');
+    percentageElement.textContent = "Today's Percentage:"+ percentage.toFixed(2) + '%';
+  }
+
+  // Add event listeners to the checkboxes
+  checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', updatePercentage);
+  });
+  });*/
+
+  
+  
+
+
+</script>
+</body>
+</html>
+

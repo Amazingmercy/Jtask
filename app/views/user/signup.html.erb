@@ -1,0 +1,56 @@
+<style>
+  .container{
+    padding: 5%;
+  }
+  h2{
+    color: dodgerblue;
+    font-size: 3.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  p{
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+
+<h2>Sign Up</h2>
+
+<%= form_for @user, url: '/signup', html: { class: 'needs-validation' }, novalidate: true do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: 'form-control', placeholder: 'Enter your first name', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control', placeholder: 'Enter your last name', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', placeholder: 'Enter your email address', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Enter your password', required: true %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
+</div>
+
+  <%= f.submit 'Sign Up', class: 'btn btn-warning' %>
+<% end %>
+
+      </div>
+    </div>
+  </div>
+  <script src="bootstrap.min.js"></script>
+</body>
+</html>

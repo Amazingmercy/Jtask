@@ -1,0 +1,29 @@
+<style>
+  h1{
+    color: dodgerblue;
+    font-size: 3.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .but{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5%;
+  }
+</style>
+<body>
+<h1>Task Details</h1>
+
+<p><strong>Completed:<%= @task.completed? ? "True" : "False"%></p>
+<p><strong>Title:</strong> <%= @task.title %></p>
+<p><strong>Description:</strong> <%= @task.body %></p>
+
+<div class="but">
+<%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-warning" %><br>
+<%= link_to "View All", tasks_path, class: "btn btn-primary" %><br>
+<%= form_for @task, url: task_path(@task), method: :delete, data: { confirm: 'Are you sure you want to delete this task?'} do |f| %>
+<%= f.submit 'Delete', class: 'btn btn-danger'%>
+<% end %>
+</div>
+</body>
+</html>
+

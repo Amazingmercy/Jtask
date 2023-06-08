@@ -1,0 +1,39 @@
+<style>
+  .container{
+      padding: 5%;
+    }
+  h1{
+      color: dodgerblue;
+      font-size: 3.5em;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+  <body>
+  <div class="container">
+  <h1>Edit Task</h1>
+
+<%= form_with model: @task do |f| %>
+<div class="form-group">
+  <%= f.check_box :completed%>
+  <%= f.label :Completed, "Task Completed" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :Title %>
+  <%= f.text_field :title, class: 'form-control', placeholder: 'Enter your task title', required: true%>
+  </div>
+  
+  <div class="form-group">
+  <%= f.label :Description %>
+  <%= f.text_area :body, class: 'form-control', placeholder: 'Describe your task',required: true %>
+  </div>
+
+  <br>
+  <%= f.submit "Edit Task", class: 'btn btn-warning' %>
+
+  </div>
+<% end %>
+
+</body>
+</html>
+

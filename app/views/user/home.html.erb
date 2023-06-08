@@ -1,0 +1,45 @@
+<style>
+    .hero-image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: yellow;
+    }
+    h1{
+      font-size: 4.5em;
+      font-weight: 2000px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color:dodgerblue;
+      padding: 3%;
+      border-radius: 15%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero-image">
+      <h1>JTASK</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <h2>Stay Organized</h2>
+        <p>Keep track of your tasks and stay organized with our powerful Todo App.</p>
+        <%= image_tag 'todotask.jpg', class: "img-fluid" %>
+      </div>
+      <div class="col-md-7">
+        <h2>Get Things Done</h2>
+        <p>Manage your tasks efficiently and boost your productivity.</p>
+        <%= image_tag 'Jtaskpic.png', class: "img-fluid" %>
+      </div>
+    </div><br>
+    <div class="btn-group" role="group" aria-label="Navigation">
+      <%= link_to "Login", login_path, class: "btn btn-primary" %>
+      <%= link_to "Sign up", signup_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+</body>
+</html>
