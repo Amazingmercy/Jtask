@@ -1,24 +1,14 @@
 # README
+This a basic TO-DO List application called JTask.
+It allows users to perform CRUD actions on tasks.
+It also keeps track of users completed task, you could always update your task based when completed.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I developed this app using Rails and other gems found in the Gemfile.
 
-Things you may want to cover:
+You can simply use it by creating an account, login and then Enjoy keeping track of your daily, weekly or monthly tasks.
 
-* Ruby version
+THINGS YET TO BE IMPLEMENTED
+* Forget password
+* Delete user account
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Use JTask for better chance at being more productive.
